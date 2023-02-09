@@ -12,43 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
-    return view ('Welcome');
+    return view('welcome');
 });
-
-Route::get('/home', function () {
-    return ('Halaman Home');
+Route::get('siswa', function() {
+    $arrSiswa = ["Risa Lestari","Rudi Hermawan","Bambang Kusumo","Lisa Permata"];
+    return view('siswa')->with('siswa', $arrSiswa);
 });
-
-Route::get('/about', function () {
-    return ('Halaman About');
+Route::get('guru', function() {
+    $arrGuru = ["Maya Fitrianti, M.M","Prof. Silvia Nst, M.Farm","Dr. Umar Asustinus","Dr. Syahrial, M.Kom."];
+    return view('guru')->with('guru', $arrGuru);
 });
-
-Route::get('/blog', function () {
-    return ('Halaman Blog');
-});
-
-Route::get('/fakta', function () {
-    return ('Lautan Fakta');
-});
-
-Route::get('/belajar', function () {
-    echo '<h1>Hello World!</h1>';
-    echo '<p>Sedang belajar Laravel</p>';
-});
-
-Route::get('/siswa/smkbpi/rpl', function () {
-    echo '<h2 style="text-align: center"><u>Welcome To 11 RPL</u></h2>';
-});
-
-Route::get('/siswa/{zaidan}', function ($zaidan) {
-    return "Tampilkan data siswa bernama $zaidan";
-});
-
-Route::get('/stok_barang/{jenis}/{merek}', function ($jenis,$merek) {
-    return "Cek sisa stok untuk $jenis $merek";
-});
-
-Route::get('/profile', function () {
-    return view ('profile');
+Route::get('gallery', function() {
+    return view('gallery');
 });
